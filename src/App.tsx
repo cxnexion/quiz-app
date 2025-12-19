@@ -10,8 +10,10 @@ function App() {
     return (
         <ThemeProvider>
             <div className={`w-screen h-screen bg-background p-2 flex flex-col gap-2`}>
-                <ThemePicker/>
-                <GitHubLink/>
+                <div className="flex gap-2 md:flex-col">
+                    <ThemePicker/>
+                    <GitHubLink/>
+                </div>
                 <ErrorBoundary fallback={<ErrorQuiz/>}>
                     <Quiz/>
                 </ErrorBoundary>
