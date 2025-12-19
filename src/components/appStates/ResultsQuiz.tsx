@@ -35,19 +35,19 @@ export function ResultsQuiz() {
                 <CardDescription>Here is statistic of your answers.</CardDescription>
             </CardHeader>
             <CardContent className="gap-4 flex flex-col">
-                <div className="flex items-center gap-8">
+                <div className="flex justify-between items-center gap-8">
                     <p className="whitespace-nowrap">Your Score
                     is {score} of {amountOfQuestions} ({(score / amountOfQuestions * 100).toPrecision(4)}%)</p>
-                    <Progress value={score / amountOfQuestions * 100}/>
+                    <Progress className="w-1/3" value={score / amountOfQuestions * 100}/>
                 </div>
-                <div className="flex items-center gap-8">
+                <div className="flex justify-between items-center gap-8">
                     <p className="whitespace-nowrap">Amount of correct answers is {score} of {amountOfQuestions}</p>
-                    <Progress value={score / amountOfQuestions * 100}/>
+                    <Progress className="w-1/3" value={score / amountOfQuestions * 100}/>
                 </div>
-                <div className="flex items-center gap-8">
+                <div className="flex justify-between items-center gap-8">
                     <p className="whitespace-nowrap">Amount of incorrect answers
                     is {amountOfQuestions - score} of {amountOfQuestions}</p>
-                    <Progress value={(amountOfQuestions - score) / amountOfQuestions * 100}/>
+                    <Progress className="w-1/3" value={(amountOfQuestions - score) / amountOfQuestions * 100}/>
                 </div>
             </CardContent>
             <CardFooter className="flex gap-8">
