@@ -48,7 +48,7 @@ export function SelectQuiz() {
                 <CardDescription>
                     Import your or use default one.
                 </CardDescription>
-                <CardAction><a target="_blank" href=""><Button variant="link">Custom quiz?</Button></a></CardAction>
+                <CardAction><a target="_blank" href="https://github.com/cxnexion/quiz-app/blob/master/README.md"><Button variant="link">Custom quiz?</Button></a></CardAction>
 
             </CardHeader>
             <CardContent>
