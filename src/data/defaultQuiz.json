@@ -1,0 +1,107 @@
+{
+  "title": "JavaScript Quiz",
+  "description": "JavaScript Quiz to test you knowledge.",
+  "badges": ["JavaScript"],
+  "questions": [
+    {
+      "text": "What is the output of `typeof null`?",
+      "correctAnswer": "0",
+      "answers": [
+        "object",
+        "null",
+        "undefined",
+        "number"
+      ]
+    },
+    {
+      "text": "Which company developed JavaScript?",
+      "correctAnswer": "1",
+      "answers": [
+        "Microsoft",
+        "Netscape",
+        "Sun Microsystems",
+        "Google"
+      ]
+    },
+    {
+      "text": "What does the `===` operator do?",
+      "correctAnswer": "0",
+      "answers": [
+        "Compares for equality without type conversion",
+        "Compares for equality with type conversion",
+        "Assigns a value to a variable",
+        "Checks if a value is not equal"
+      ]
+    },
+    {
+      "text": "How do you declare a constant variable in JavaScript?",
+      "correctAnswer": "2",
+      "answers": [
+        "let",
+        "var",
+        "const",
+        "static"
+      ]
+    },
+    {
+      "text": "What is the result of `'5' + 3` in JavaScript?",
+      "correctAnswer": "1",
+      "answers": [
+        "8",
+        "53",
+        "Error",
+        "35"
+      ]
+    },
+    {
+      "text": "Which method is used to add a new item to the end of an array?",
+      "correctAnswer": "0",
+      "answers": [
+        "push()",
+        "pop()",
+        "shift()",
+        "unshift()"
+      ]
+    },
+    {
+      "text": "How do you write a single-line comment in JavaScript?",
+      "correctAnswer": "0",
+      "answers": [
+        "// comment",
+        "<!-- comment -->",
+        "/* comment */",
+        "# comment"
+      ]
+    },
+    {
+      "text": "What does `NaN` stand for?",
+      "correctAnswer": "0",
+      "answers": [
+        "Not a Number",
+        "No and Never",
+        "New and Null",
+        "Not applicable Now"
+      ]
+    },
+    {
+      "text": "Which of the following is a popular JavaScript library for building user interfaces?",
+      "correctAnswer": "0",
+      "answers": [
+        "React",
+        "Laravel",
+        "Django",
+        "Flask"
+      ]
+    },
+    {
+      "text": "How do you find the number with the highest value of x and y?",
+      "correctAnswer": "1",
+      "answers": [
+        "Math.ceil(x, y)",
+        "Math.max(x, y)",
+        "Math.round(x, y)",
+        "top(x, y)"
+      ]
+    }
+  ]
+}
