@@ -7,7 +7,7 @@ export function ErrorQuiz() {
         <>
             <Card className="w-xl max-w-[95vw] self-center shadow-lg">
                 <CardHeader><CardTitle>Something went wrong</CardTitle>
-<CardDescription>Some error happened. I don't know is it your fault or my fault.</CardDescription>
+<CardDescription>Some error happened. Something wrong with your quiz.</CardDescription>
 
                 </CardHeader>
                 <CardFooter>

@@ -2,11 +2,12 @@ import {CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTi
 import {Input} from "@/components/ui/input.tsx";
 import defaultQuizData from "@/data/defaultQuiz.json";
 import {Button} from "@/components/ui/button.tsx";
-import {type ChangeEvent, useContext} from "react";
+import {type ChangeEvent, useContext, useState} from "react";
 import {Item, ItemDescription, ItemTitle} from "@/components/ui/item.tsx";
 import {Badge} from "@/components/ui/badge.tsx";
 import {Skeleton} from "@/components/ui/skeleton.tsx";
 import {type quiz, QuizContext, QuizStateContext, ScoreContext} from "@/components/contexts/Contexts.ts";
+import {Field, FieldError, FieldLabel} from "@/components/ui/field.tsx";
 
 export function SelectQuiz() {
 
@@ -14,25 +15,33 @@ export function SelectQuiz() {
     const quizStateContext = useContext(QuizStateContext);
     const scoreContext = useContext(ScoreContext);
 
+    const [isInputInvalid, setIsInputInvalid] = useState<true | false>(true);
+
     if (!quizContext || !quizStateContext || !scoreContext) {
         throw new Error("SelectQuiz must be used within a QuizProvider, QuizStateProvider, and ScoreProvider");
     }
 
-    const { quiz, setQuiz } = quizContext;
-    const { setQuizState } = quizStateContext;
-    const { setScore } = scoreContext;
+    const {quiz, setQuiz} = quizContext;
+    const {setQuizState} = quizStateContext;
+    const {setScore} = scoreContext;
 
-    const defaultQuiz:quiz = defaultQuizData;
+    const defaultQuiz: quiz = defaultQuizData;
 
     function handleDefault() {
         setQuiz(defaultQuiz);
     }
 
-   async function handleInput(e: ChangeEvent<HTMLInputElement>) {
-        const file = e.target.files?.[0];
+    async function handleInput(ev: ChangeEvent<HTMLInputElement>) {
+        const file = ev.target.files?.[0];
         if (file) {
-            const fileJSON =JSON.parse(await file.text());
-            setQuiz(fileJSON);
+            try {
+                const fileJSON = JSON.parse(await file.text());
+                setQuiz(fileJSON);
+                setIsInputInvalid(false);
+            } catch (e) {
+                console.error(e);
+                setIsInputInvalid(true);
+            }
         }
     }
 
@@ -48,7 +57,8 @@ export function SelectQuiz() {
                 <CardDescription>
                     Import your or use default one.
                 </CardDescription>
-                <CardAction><a target="_blank" href="https://github.com/cxnexion/quiz-app/blob/master/README.md"><Button variant="link">Custom quiz?</Button></a></CardAction>
+                <CardAction><a target="_blank" href="https://github.com/cxnexion/quiz-app/blob/master/README.md"><Button
+                    variant="link">Custom quiz?</Button></a></CardAction>
 
             </CardHeader>
             <CardContent>
@@ -69,7 +79,12 @@ export function SelectQuiz() {
             </CardContent>
 
             <CardFooter className="flex flex-col gap-4">
-                <Input type="file" accept=".json" onChange={handleInput}/>
+                <Field className="group" data-invalid={isInputInvalid}>
+                    <FieldLabel htmlFor="file">Quiz file</FieldLabel>
+                    <Input type="file" accept=".json" onChange={handleInput}/>
+                    <FieldError className="px-2 hidden group-data-[invalid=true]:block">Quiz file is
+                        invalid.</FieldError>
+                </Field>
                 <div className="w-full gap-2 flex flex-col">
                     <Button className="w-full" variant="outline" disabled={quiz === undefined} onClick={handleQuiz}>Play
                         Quiz</Button>
