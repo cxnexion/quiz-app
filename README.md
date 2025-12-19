@@ -71,7 +71,7 @@ npm install
 npm run start
 ```
 
-Or check it live: [GitHub Pages]()
+Or check it live: [GitHub Pages](https://cxnexion.github.io/quiz-app/)
 
 And yeah, AI typed this readme.
 
