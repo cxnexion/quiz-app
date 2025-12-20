@@ -15,7 +15,7 @@ export function SelectQuiz() {
     const quizStateContext = useContext(QuizStateContext);
     const scoreContext = useContext(ScoreContext);
 
-    const [isInputInvalid, setIsInputInvalid] = useState<true | false>(true);
+    const [isInputInvalid, setIsInputInvalid] = useState<true | false>(false);
 
     if (!quizContext || !quizStateContext || !scoreContext) {
         throw new Error("SelectQuiz must be used within a QuizProvider, QuizStateProvider, and ScoreProvider");

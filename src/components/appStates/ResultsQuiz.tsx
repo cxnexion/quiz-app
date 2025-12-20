@@ -14,11 +14,11 @@ export function ResultsQuiz() {
         throw new Error("ResultsQuiz must be used within a ScoreProvider, QuizProvider, and QuizStateProvider");
     }
 
-    const { score } = scoreContext;
-    const { quiz } = quizContext;
-    const { setQuizState } = quizStateContext;
+    const {score} = scoreContext;
+    const {quiz} = quizContext;
+    const {setQuizState} = quizStateContext;
 
-    if(!quiz){
+    if (!quiz) {
         throw new Error("Quiz is null.")
     }
 
@@ -34,20 +34,20 @@ export function ResultsQuiz() {
                 <CardTitle>Results</CardTitle>
                 <CardDescription>Here is statistic of your answers.</CardDescription>
             </CardHeader>
-            <CardContent className="gap-4 flex flex-col">
-                <div className="flex justify-between items-center gap-8">
+            <CardContent className="gap-8 flex flex-col">
+                <div className="flex  md:flex-row justify-between  flex-col md:items-center gap-2">
                     <p className="whitespace-nowrap">Your Score
-                    is {score} of {amountOfQuestions} ({(score / amountOfQuestions * 100).toPrecision(4)}%)</p>
-                    <Progress className="w-1/3" value={score / amountOfQuestions * 100}/>
+                        is {score} of {amountOfQuestions} ({(score / amountOfQuestions * 100).toPrecision(4)}%)</p>
+                    <Progress className="md:w-1/3" value={score / amountOfQuestions * 100}/>
                 </div>
-                <div className="flex justify-between items-center gap-8">
+                <div className="flex md:flex-row  justify-between  flex-col md:items-center gap-2">
                     <p className="whitespace-nowrap">Amount of correct answers is {score} of {amountOfQuestions}</p>
-                    <Progress className="w-1/3" value={score / amountOfQuestions * 100}/>
+                    <Progress className="md:w-1/3" value={score / amountOfQuestions * 100}/>
                 </div>
-                <div className="flex justify-between items-center gap-8">
+                <div className="flex md:flex-row   justify-between flex-col md:items-center gap-2">
                     <p className="whitespace-nowrap">Amount of incorrect answers
-                    is {amountOfQuestions - score} of {amountOfQuestions}</p>
-                    <Progress className="w-1/3" value={(amountOfQuestions - score) / amountOfQuestions * 100}/>
+                        is {amountOfQuestions - score} of {amountOfQuestions}</p>
+                    <Progress className="md:w-1/3" value={(amountOfQuestions - score) / amountOfQuestions * 100}/>
                 </div>
             </CardContent>
             <CardFooter className="flex gap-8">
